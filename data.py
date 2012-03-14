@@ -17,5 +17,5 @@ food - list of foods eaten prior to run (the meal before), including liquids
 
 runs = [
   ("2012-03-11", "19:30", 1.25, "25:00", 5.0, 2.9, "okay", "happy", ["rice", "pork", "cheese"]),
-  ("2012-03-13", "20:30", 1.88, "25:00", 6.6, 3.6, "good", "happy", ["soda", "pasta", "water"]),
+  ("2012-03-13", "20:30", 1.88, "25:00", 6.6, 3.6, "good", "happy", ["soda", "pasta", "water", "bread"]),
 ]

@@ -14,6 +14,10 @@ feeling - bad, okay, good - this is a description of how I felt about the run
 mood - angry, sad, happy, upset, anxious, etc - this is how I felt when I started the run
 legs - sore, fresh, tired, etc - this how my legs felt before starting the run
 food - list of foods eaten prior to run (the meal before), including liquids
+
+
+Todo:
+  Make this into a proper data class (Runs iterates over Run objects)
 '''
 
 runs = [

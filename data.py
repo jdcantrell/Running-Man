@@ -35,9 +35,15 @@ class Run:
     self.leg_status = leg_status
     self.food = food
     self.weight = weight
+    
+    #calculated values
+    #run_time in seconds
+    #avg speed
+#calories?
 
 runs = [
   Run("2012-03-11", "19:30", 1.25, "00:25:00", 5.0, 2.9, "okay", "happy", "fresh", ["rice", "pork", "cheese"], 169.8),
   Run("2012-03-13", "20:30", 1.88, "00:25:00", 6.6, 3.6, "good", "happy", "fresh", ["soda", "pasta", "water", "bread"], 169.8),
   Run("2012-03-18", "19:40", 2.05, "00:24:51", 7.0, 3.8, "good", "happy", "fresh", ["bagel", "turkey", "ham", "cheese"], 167.8),
+  Run("2012-03-21", "20:12", 2.14, "00:24:47", 7.5, 4.0, "okay", "meh", "fresh", ["chicken", "noodles", "apple juice"], 168.8),
 ]

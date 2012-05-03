@@ -49,4 +49,7 @@ runs = [
   Run("2012-03-21", "20:12", 2.14, "00:24:47", 7.5, 4.0, "okay", "meh", "fresh", ["chicken", "noodles", "apple juice"], 168.8),
   Run("2012-04-08", "22:22", 2.16, "00:25:17", 7.5, 4.0, "okay", "meh", "fresh", [], 169.8),
   Run("2012-04-15", "20:16", 2.15, "00:24:30", 7.5, 4.0, "good", "bummed", "fresh", ["sandwich", "chips"], 166.8),
+  Run("2012-04-19", "22:21", 2.17, "00:24:56", 7.5, 4.0, "good", "meh", "fresh", ["sandwich", "chips"], 169.8),
+  Run("2012-04-30", "22:20", 1.92, "00:21:38", 7.5, 4.0, "good", "meh", "fresh", ["albondigas soup", "chocolate milk"], 169.8),
+  Run("2012-05-02", "20:40", 1.93, "00:21:35", 7.5, 4.0, "good", "upset", "tired", ["asparagus carbonara", "chocolate milk"], 168.2),
 ]

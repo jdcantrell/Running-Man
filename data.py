@@ -27,7 +27,7 @@ class Run:
     self.date = date
     self.time = time
     self.distance = distance
-    self.run_time = run_time
+    self.run_time_display = run_time
     self.max_speed = max_speed
     self.min_speed = min_speed
     self.run_feeling = run_feeling
@@ -37,8 +37,20 @@ class Run:
     self.weight = weight
     
     #calculated values
+    l = run_time.split(':')
+    self.run_time_seconds = int(l[0]) * 3600 + int(l[1]) * 60 + int(l[2])
+    self.average_mph = float(self.distance) / float(self.run_time_seconds) * 3600.0
+    self.mile_time = 1.0 / self.average_mph *  60
     #run_time in seconds
     #avg speed
+  @property
+  def mph(self):
+    return self.average_mph
+
+  @property
+  def mpm(self):
+    return self.mile_time
+
 #calories?
 
 runs = [
@@ -46,10 +58,14 @@ runs = [
   Run("2012-03-13", "20:30", 1.88, "00:25:00", 6.6, 3.6, "good", "happy", "fresh", ["soda", "pasta", "water", "bread"], 169.8),
   Run("2012-03-18", "19:40", 2.05, "00:24:51", 7.0, 3.8, "good", "happy", "fresh", ["bagel", "turkey", "ham", "cheese"], 167.8),
   Run("2012-03-21", "20:12", 2.14, "00:24:47", 7.5, 4.0, "okay", "meh", "fresh", ["chicken", "noodles", "apple juice"], 168.8),
-  Run("2012-03-21", "20:12", 2.14, "00:24:47", 7.5, 4.0, "okay", "meh", "fresh", ["chicken", "noodles", "apple juice"], 168.8),
   Run("2012-04-08", "22:22", 2.16, "00:25:17", 7.5, 4.0, "okay", "meh", "fresh", [], 169.8),
   Run("2012-04-15", "20:16", 2.15, "00:24:30", 7.5, 4.0, "good", "bummed", "fresh", ["sandwich", "chips"], 166.8),
   Run("2012-04-19", "22:21", 2.17, "00:24:56", 7.5, 4.0, "good", "meh", "fresh", ["sandwich", "chips"], 169.8),
   Run("2012-04-30", "22:20", 1.92, "00:21:38", 7.5, 4.0, "good", "meh", "fresh", ["albondigas soup", "chocolate milk"], 169.8),
   Run("2012-05-02", "20:40", 1.93, "00:21:35", 7.5, 4.0, "good", "upset", "tired", ["asparagus carbonara", "chocolate milk"], 168.2),
+  Run("2012-05-07", "21:50", 1.96, "00:21:40", 7.5, 4.0, "good", "good", "fresh", ["ham sandwich"], 168.7),
+  Run("2012-05-10", "21:20", 2.64, "00:27:26", 7.5, 4.0, "good", "good", "fresh", ["eggs", "cream-o-wheat"], 166.7),
 ]
+
+for d in runs:
+  print "MPH: %f MPM: %f" % (d.mph, d.mpm)

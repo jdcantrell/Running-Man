@@ -2,13 +2,31 @@
 <html>
   <head>
     <title>JD's Running page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <h1>Run History</h1>
-    <h1>Statistics</h1>
-    You have spent {{ stats.time_display }} running {{ stats.miles }} miles
-    So far, your average speed is {{ stats.avg_mph }}mph ({{ stats.avg_mpm }} per mile)
-    On {{ stats.best_mph_date.strftime('%A, %B %d') }} you were your fastest clocking in at {{ stats.best_mph }}mph ({{ stats.best_mpm }} per mile) 
-    Your longest run was on {{ stats.longest_run_date.strftime('%A, %B %d') }} for {{ stats.longest_run }} miles
+    <h1>Running Man</h1>
+    <ul class="chart-list">
+      <li>MPH <span class="last-run">{{ last.mph|round(2) }}</span> <div id="mph_sparkline">hello</div>
+      <li>MPM <span class="last-run">{{ last.mpm|round(2) }}</span> <div id="mpm_sparkline">hello</div>
+      <li>Time <span class="last-run">{{ last.run_time_display }}</span> <div id="time_sparkline">hello</div>
+      <li>Distance <span class="last-run">{{ last.distance }}</span> <div id="distance_sparkline">hello</div>
+      <li>Weight <span class="last-run">{{ last.weight }}</span> <div id="weight_sparkline">hello</div>
+      <li>Dates <span class="last-run">{{ last.date.strftime('%a, %B %d') }}</span> <div id="date_sparkline">hello</div>
+    </ul>
+    <div class="stats">
+      <ul style="list-style:none;padding:0;maring:0;text-align:left;width:510px;margin:auto; padding-top:20px">
+        <li>Total: {{ stats.miles }} miles over {{ stats.time_display }} 
+        <li>Average Speed: {{ stats.avg_mph }}mph ({{ stats.avg_mpm }} per mile)
+        <li>Best Speed: {{ stats.best_mph }}mph ({{ stats.best_mpm }} per mile) {{ stats.best_mph_date.strftime('%B %d') }}
+        <li>Longest Distance: {{ stats.longest_run }} miles on {{ stats.longest_run_date.strftime('%B %d') }}
+      </ul>
+    </div>
+    <script type="text/javascript">
+      var data = {{ json }}
+    </script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.sparkline.js"></script>
+    <script type="text/javascript" src="run.js"></script>
   </body>
 </html>

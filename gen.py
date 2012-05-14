@@ -1,6 +1,7 @@
 import data;
 from jinja2 import Environment, FileSystemLoader
 import math
+import json
 
 def gen_page():
   # prepare data
@@ -13,7 +14,9 @@ def gen_page():
     'best_mpm': 0,
   }
 
+  context['json'] = []
   for run in data.runs:
+    context['json'].append(run.__dict__)
     stats['miles'] += run.miles
     stats['time'] += run.run_time_seconds
     if run.miles > stats['longest_run']:
@@ -35,9 +38,12 @@ def gen_page():
 
   stats['time_display'] = '%d hours and %d minutes, and %d seconds' % ( stats['time'] / 3600, stats['time'] % 3600 / 60, stats['time'] % 3600 % 60)
   context['stats'] = stats
+  context['last'] = data.runs.pop()
+  context['json'] = json.dumps(context['json'])
+
   # parse template
   template_file = "run.html"
-  output_file = "running-man.html"
+  output_file = "output/index.html"
   env = Environment(loader=FileSystemLoader('templates'))
   template = env.get_template(template_file)
 
@@ -49,3 +55,4 @@ def gen_page():
 
 if __name__ == "__main__":
   gen_page()
+  print "Page generated."

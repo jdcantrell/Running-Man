@@ -24,7 +24,10 @@ Todo:
 from datetime import datetime
 
 class Run:
+  _ID = 0
   def __init__(self, date, time, distance, run_time, max_speed, min_speed, run_feeling, mood, leg_status, food, weight):
+    self.id = Run._ID
+    Run._ID += 1
     self.date_str = date
     self.time = time
     self.distance = distance
@@ -42,6 +45,10 @@ class Run:
     self.run_time_seconds = int(l[0]) * 3600 + int(l[1]) * 60 + int(l[2])
     self.average_mph = float(self.distance) / float(self.run_time_seconds) * 3600.0
     self.mile_time = 1.0 / self.average_mph *  60
+
+  @property
+  def id(self):
+    return self.id
 
   @property
   def date(self):

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JD's Running page</title>
+  </head>
+  <body>
+    <h1>Run History</h1>
+    <h1>Statistics</h1>
+    You have spent {{ stats.time_display }} running {{ stats.miles }} miles
+    So far, your average speed is {{ stats.avg_mph }}mph ({{ stats.avg_mpm }} per mile)
+    On {{ stats.best_mph_date.strftime('%A, %B %d') }} you were your fastest clocking in at {{ stats.best_mph }}mph ({{ stats.best_mpm }} per mile) 
+    Your longest run was on {{ stats.longest_run_date.strftime('%A, %B %d') }} for {{ stats.longest_run }} miles
+  </body>
+</html>

@@ -21,10 +21,11 @@ Todo:
   Make this into a proper data class (Runs iterates over Run objects)
 '''
 
+from datetime import datetime
 
 class Run:
   def __init__(self, date, time, distance, run_time, max_speed, min_speed, run_feeling, mood, leg_status, food, weight):
-    self.date = date
+    self.date_str = date
     self.time = time
     self.distance = distance
     self.run_time_display = run_time
@@ -41,8 +42,39 @@ class Run:
     self.run_time_seconds = int(l[0]) * 3600 + int(l[1]) * 60 + int(l[2])
     self.average_mph = float(self.distance) / float(self.run_time_seconds) * 3600.0
     self.mile_time = 1.0 / self.average_mph *  60
-    #run_time in seconds
-    #avg speed
+
+  @property
+  def date(self):
+    return datetime.strptime("%s %s" % (self.date_str, self.time), "%Y-%m-%d %H:%M")
+
+  @property
+  def miles(self):
+    return self.distance
+
+  @property
+  def lbs(self):
+    return self.weight
+
+  @property
+  def food(self):
+    return self.food
+
+  @property
+  def run_feel(self):
+    return self.run_feeling
+
+  @property
+  def min(self):
+    return self.min_speed
+
+  @property
+  def max(self):
+    return self.max_speed
+
+  @property
+  def time(self):
+    return self.run_time_seconds
+
   @property
   def mph(self):
     return self.average_mph
@@ -50,8 +82,6 @@ class Run:
   @property
   def mpm(self):
     return self.mile_time
-
-#calories?
 
 runs = [
   Run("2012-03-11", "19:30", 1.25, "00:25:00", 5.0, 2.9, "okay", "happy", "fresh", ["rice", "pork", "cheese"], 169.8),
@@ -64,8 +94,10 @@ runs = [
   Run("2012-04-30", "22:20", 1.92, "00:21:38", 7.5, 4.0, "good", "meh", "fresh", ["albondigas soup", "chocolate milk"], 169.8),
   Run("2012-05-02", "20:40", 1.93, "00:21:35", 7.5, 4.0, "good", "upset", "tired", ["asparagus carbonara", "chocolate milk"], 168.2),
   Run("2012-05-07", "21:50", 1.96, "00:21:40", 7.5, 4.0, "good", "good", "fresh", ["ham sandwich"], 168.7),
-  Run("2012-05-10", "21:20", 2.64, "00:27:26", 7.5, 4.0, "good", "good", "fresh", ["eggs", "cream-o-wheat"], 166.7),
+  Run("2012-05-10", "21:20", 2.64, "00:27:26", 7.5, 4.0, "good", "good", "fresh", ["eggs", "cream-o-wheat"], 168.6),
+  Run("2012-05-12", "21:30", 2.68, "00:27:53", 7.5, 4.0, "tired", "okay", "fresh", ["taco bell", "pasta"], 166.6),
 ]
 
-for d in runs:
-  print "MPH: %f MPM: %f" % (d.mph, d.mpm)
+if __name__ == "__main__":
+  for d in runs:
+    print "MPH: %f MPM: %f" % (d.mph, d.mpm)

@@ -1,2 +1,2 @@
-data.pyc
-running-man.html
+*.pyc
+output/index.html

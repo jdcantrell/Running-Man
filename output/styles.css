@@ -1,18 +1,26 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
-font-size: 16px;
-font-style: normal;
-font-weight: bold;
-text-transform: normal;
-letter-spacing: normal;
-line-height: 1.4em;
-color:#002b36;
-text-align:center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  text-transform: normal;
+  letter-spacing: normal;
+  line-height: 1.4em;
+  color:#002b36;
+  text-align:center;
 }
-.chart-list {
+
+.container {
   margin:auto;
+  width:760px;
+}
+
+.chart-list {
+  float:left;
   list-style: none;
   width:350px;
+  margin-top:0;
+  margin-right:20px;
 }
 
 .chart-list li {
@@ -23,12 +31,46 @@ text-align:center;
 
 
 .stats {
-  clear:both
-}
-.stats li {
-  margin:15px 0;
+  float:left;
+  width:350px;
+  text-align:left;
 }
 
-.last-run {
-  color:#859900;
+.stats ul {
+  padding:0;
+  margin: 0;
+  list-style: none;
+}
+
+.stats li {
+  margin-bottom:10px;
+}
+
+.stats .miles {
+  font-size: 50px;
+  line-height: 30px;
+  color: #268bd2;
+}
+.stats .time {
+  font-size: 30px;
+  line-height: 30px;
+  color: #859900;
+}
+
+.stats .average, .stats .best, .stats .longest {
+  font-size: 30px;
+  line-height: 18px;
+}
+.stats .average span, .stats .best span {
+  color: #657b83;
+}
+.stats .average {
+  color:#d33682;
+}
+.stats .best {
+  color:#dc322f;
+}
+
+.stats .longest {
+  color:#2aa198;
 }

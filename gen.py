@@ -29,14 +29,14 @@ def gen_page():
 
 
   stats['best_mph'] = round(stats['best_mph'], 2)
-  stats['best_mpm'] = "%d minutes and %d seconds " % (math.trunc(stats['best_mpm']), round(float(math.ceil(stats['best_mpm']) - stats['best_mpm']) * 60.0))
+  stats['best_mpm'] = "%dm, %ds " % (math.trunc(stats['best_mpm']), round(float(math.ceil(stats['best_mpm']) - stats['best_mpm']) * 60.0))
 
   stats['avg_mph'] = round(float(stats['miles']) / float(stats['time']) * 3600.0, 2)
 
   avg_mpm = 1.0 / stats['avg_mph'] *  60
-  stats['avg_mpm'] = "%d minutes, %d seconds " % (math.trunc(avg_mpm), round(float(math.ceil(avg_mpm) - avg_mpm) * 60.0))
+  stats['avg_mpm'] = "%dm, %ds " % (math.trunc(avg_mpm), round(float(math.ceil(avg_mpm) - avg_mpm) * 60.0))
 
-  stats['time_display'] = '%d hours and %d minutes, and %d seconds' % ( stats['time'] / 3600, stats['time'] % 3600 / 60, stats['time'] % 3600 % 60)
+  stats['time_display'] = '%dhr, %dm, and %ds' % ( stats['time'] / 3600, stats['time'] % 3600 / 60, stats['time'] % 3600 % 60)
   context['stats'] = stats
   context['last'] = data.runs.pop()
   context['json'] = json.dumps(context['json'])

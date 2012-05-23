@@ -6,21 +6,32 @@
   </head>
   <body>
     <h1>Running Man</h1>
-    <ul class="chart-list">
-      <li>MPH <span class="last-run">{{ last.mph|round(2) }}</span> <div id="mph_sparkline">hello</div>
-      <li>MPM <span class="last-run">{{ last.mpm|round(2) }}</span> <div id="mpm_sparkline">hello</div>
-      <li>Time <span class="last-run">{{ last.run_time_display }}</span> <div id="time_sparkline">hello</div>
-      <li>Distance <span class="last-run">{{ last.distance }}</span> <div id="distance_sparkline">hello</div>
-      <li>Weight <span class="last-run">{{ last.weight }}</span> <div id="weight_sparkline">hello</div>
-      <li>Dates <span class="last-run">{{ last.date.strftime('%a, %B %d') }}</span> <div id="date_sparkline">hello</div>
-    </ul>
-    <div class="stats">
-      <ul style="list-style:none;padding:0;maring:0;text-align:left;width:510px;margin:auto; padding-top:20px">
-        <li>Total: {{ stats.miles }} miles over {{ stats.time_display }} 
-        <li>Average Speed: {{ stats.avg_mph }}mph ({{ stats.avg_mpm }} per mile)
-        <li>Best Speed: {{ stats.best_mph }}mph ({{ stats.best_mpm }} per mile) {{ stats.best_mph_date.strftime('%B %d') }}
-        <li>Longest Distance: {{ stats.longest_run }} miles on {{ stats.longest_run_date.strftime('%B %d') }}
+    <div class="container">
+      <ul class="chart-list">
+        <li>MPH <span class="last-run">{{ last.mph|round(2) }}</span> <div id="mph_sparkline">hello</div>
+        <li>MPM <span class="last-run">{{ last.mpm|round(2) }}</span> <div id="mpm_sparkline">hello</div>
+        <li>Time <span class="last-run">{{ last.run_time_display }}</span> <div id="time_sparkline">hello</div>
+        <li>Distance <span class="last-run">{{ last.distance }}</span> <div id="distance_sparkline">hello</div>
+        <li>Weight <span class="last-run">{{ last.weight }}</span> <div id="weight_sparkline">hello</div>
+        <li>Dates <span class="last-run">{{ last.date.strftime('%a, %B %d') }}</span> <div id="date_sparkline">hello</div>
       </ul>
+      <div class="stats">
+        <ul>
+          <li>
+            Lifetime:
+            <div class="miles">{{ stats.miles }} miles</div>
+            <div class="time">{{ stats.time_display }}</div>
+          <li>
+            Average:
+            <div class="average">{{ stats.avg_mph }}mph <span>{{ stats.avg_mpm }}mpm</span></div>
+          <li>
+            Fatest on {{ stats.best_mph_date.strftime('%B %d') }}:
+            <div class="best">{{ stats.best_mph }}mph <span>{{ stats.best_mpm }}mpm</span></div>
+          <li>
+            Longest on {{ stats.longest_run_date.strftime('%B %d') }}:
+            <div class="longest">{{ stats.longest_run }} miles</div>
+          </ul>
+      </div>
     </div>
     <script type="text/javascript">
       var data = {{ json }}

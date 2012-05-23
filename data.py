@@ -91,7 +91,6 @@ class Run:
     return self.mile_time
 
 runs = [
-  #    date          time    dist   time ran   max  min   run     mood    legs      food                      weight
   Run("2012-03-11", "19:30", 1.25, "00:25:00", 5.0, 2.9, "okay", "happy", "fresh", ["rice", "pork", "cheese"], 169.8),
   Run("2012-03-13", "20:30", 1.88, "00:25:00", 6.6, 3.6, "good", "happy", "fresh", ["soda", "pasta", "water", "bread"], 169.8),
   Run("2012-03-18", "19:40", 2.05, "00:24:51", 7.0, 3.8, "good", "happy", "fresh", ["bagel", "turkey", "ham", "cheese"], 167.8),
@@ -106,7 +105,7 @@ runs = [
   Run("2012-05-12", "21:30", 2.68, "00:27:53", 7.5, 4.0, "tired", "okay", "fresh", ["taco bell", "pasta"], 166.6),
   Run("2012-05-14", "21:20", 2.71, "00:28:01", 7.5, 4.0, "tired", "okay", "run-ready", ["fish sticks", "strawberry shortcake"], 167.4),
   Run("2012-05-17", "21:00", 2.70, "00:27:51", 7.5, 4.0, "okay", "happy", "fresh", ["fish sticks", "eggs"], 167.8),
-  Run("2012-05-22", "21:30", 2.71, "00:27:45", 7.5, 4.0, "good", "frustrated", "fresh", ["corn", "tilapia", "bread"], 167.8),
+  Run("2012-05-22", "21:30", 2.71, "00:27:45", 7.5, 4.0, "good", "frustrated", "fresh", ["corn", "tilapia", "bread"], 168.6),
 ]
 
 if __name__ == "__main__":

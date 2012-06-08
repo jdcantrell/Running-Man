@@ -106,6 +106,7 @@ runs = [
   Run("2012-05-14", "21:20", 2.71, "00:28:01", 7.5, 4.0, "tired", "okay", "run-ready", ["fish sticks", "strawberry shortcake"], 167.4),
   Run("2012-05-17", "21:00", 2.70, "00:27:51", 7.5, 4.0, "okay", "happy", "fresh", ["fish sticks", "eggs"], 167.8),
   Run("2012-05-22", "21:30", 2.71, "00:27:45", 7.5, 4.0, "good", "frustrated", "fresh", ["corn", "tilapia", "bread"], 168.6),
+  Run("2012-06-07", "21:30", 2.58, "00:26:51", 7.0, 5.0, "good", "happy", "fresh", ["raisin bran", "chicken kabob sandwich"], 169.6),
 ]
 
 if __name__ == "__main__":
